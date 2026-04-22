@@ -20,10 +20,10 @@ jobs:
       - name: Install Flet
         run: pip install flet
 
-      - name: Build APK
-        run: flet build apk
-        env:
-          FLET_BUILD_APK_ASSUME_YES: "true"
+      - name: Build APK (auto-confirm)
+        run: |
+          # Автоматически отвечаем "y" на все запросы
+          yes | flet build apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
